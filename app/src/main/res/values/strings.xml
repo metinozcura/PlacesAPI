@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PlacesAPI</string>
+    <string name="api_key" >@string/API_KEY</string>
+    <string name="image_url">https://maps.googleapis.com/maps/api/place/photo?maxwidth=%1$s&amp;photoreference=%2$s&amp;key=%3$s</string>
+    <string name="detail_fields">name,rating,formatted_phone_number,formatted_address,photos,plus_code,type,url,price_level,rating,user_ratings_total</string>
+    <string name="placeholder_location">acquiring location</string>
+    <string name="warning">Warning</string>
+    <string name="permission_dialog_text">You must grant location permission to use this application.</string>
+    <string name="activate_gps">Please enable GPS to use this application.</string>
+    <string name="retry">Retry</string>
+    <string name="open_now">Open now</string>
+    <string name="closed">Closed</string>
+    <string name="rating_format">%1$s out of %2$s review.</string>
+    <string name="delete">Delete</string>
+    <string name="delete_dialog_text">Are you sure want to delete this place?</string>
+    <string name="generic_error_message">%1$s. Tap here to retry.</string>
+</resources>

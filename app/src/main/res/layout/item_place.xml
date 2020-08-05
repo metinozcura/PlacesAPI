@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.metinozcura.placesapi.model.Place" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                style="@style/ListCardStyle"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="@{model.name}"
+                android:textSize="16sp"
+                android:textColor="@{model.visited ? @color/indigo500 : @color/colorPrimaryText}"
+                app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Kentucky Fried Chickens" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvOpenNow"
+                style="@style/ListCardStyle"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="@{model.openingHours.openNow ? @string/open_now : @string/closed}"
+                android:textColor="@{model.openingHours.openNow ? @color/green500 : @color/red500}"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                tools:text="Open now" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRating"
+                style="@style/ListCardStyle"
+                android:text="@{@string/rating_format(model.rating, model.totalUserRatings)}"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintBottom_toTopOf="@+id/tvAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="4.7 out of 216" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAddress"
+                style="@style/ListCardStyle"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/colorPrimaryText"
+                android:text="@{model.vicinity}"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Kentucky Boulevard, Fried St. 17/2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
